@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# Event Handling Компонент с TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Този проект демонстрира прост React компонент (без използване на React Hooks), написан като arrow функция, който борави с две основни събития:  
+- **onChange** за текстово поле (`<input>`)  
+- **onClick** за бутон (`<button>`)
 
-Currently, two official plugins are available:
+При въвеждане в текстовото поле в конзолата се визуализира текущата въведена стойност. При кликване върху бутона в конзолата се отпечатва съобщение, че бутонът е натиснат.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Особености
 
-## Expanding the ESLint configuration
+- Компонентът е имплементиран като стрелкова функция.
+- Използван е TypeScript.
+- В конзолата може да проследите въвеждането в текстовото поле и клик върху бутона в браузър конзолата.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Технологии
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: Използва се за изграждане на компонента и UI.
+- **TypeScript**: Добавя статична типизация и подобрява предвидимостта и стабилността на кода.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Инсталация и стартиране
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. **Клонирайте репото или копирайте кода:**  
+   ```bash
+   git clone https://github.com/batfiowoof/Event-Handling/.git
+   ```
+   
+2. **Инсталирайте зависимостите:**  
+   Отидете в основната директория на проекта и стартирайте:  
+   ```bash
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+3. **Стартирайте в режим на разработка:**  
+   ```bash
+   npm run dev
+   ```
+   
+   Приложението обикновено се отваря на [http://localhost:5173](http://localhost:5173) в браузъра ви.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Начин на работа
+
+- Отворете браузъра на [http://localhost:5173](http://localhost:5173).
+- Въведете произволен текст в полето и наблюдавайте конзолата (отваря се с F12 или Ctrl+Shift+I), за да видите как стойността се отпечатва при всяка промяна.
+- Кликнете бутона и наблюдавайте как се визуализира съобщението "Бутонът е натиснат!" в конзолата.
+
+## Структура на кода
+
+`App.tsx` съдържа компонента, който:
+
+- Дефинира две функции: `handleInputChange` и `handleButtonClick`.
+- Свързва функциите със събитията `onChange` и `onClick` на съответните JSX елементи.
+- Използва TypeScript тип `ChangeEvent<HTMLInputElement>` за по-добра сигурност.
